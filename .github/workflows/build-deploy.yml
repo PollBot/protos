@@ -1,0 +1,28 @@
+name: build & deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: '5'
+      - name: Install dependencies
+        run: dotnet restore -s stc/PollBot.Protos.sln
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+      - name: Build package
+        run: dotnet pack -c Release
+      - name: Publish to NuGet
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: src/PollBot.Protos/PollBot.Protos.csproj
+          VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
+          NUGET_SOURCE: https://nuget.pkg.github.com/PollBot/index.json
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
