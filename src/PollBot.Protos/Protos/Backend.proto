@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "PollBot.Protos";
+
+package backend;
+
+service BackendService {
+  rpc ReceiveMessage (MessageRequest) returns (MessageResponse);
+  rpc CreatePoll (PollRequest) returns (PollResponse);
+}
+
+message PollRequest {
+  int32 type = 1;
+  string title = 2;
+  string description = 3;
+  repeated string reactions = 4;
+}
+
+message PollResponse {
+  bool isCreated = 1;
+}
+
+message MessageRequest {
+  int32 type = 1;
+  uint64 guild_id = 2;
+  uint64 channel_id = 3;
+  string message_to_send = 4;
+}
+
+message MessageResponse {
+  bool isSend = 1;
+}
