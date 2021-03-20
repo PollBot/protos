@@ -20,7 +20,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>PollBot.Protos</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <Version>1.0.1</Version>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>MRmlik12</Authors>
     <Company>PollBot</Company>
     <RepositoryUrl>https://github.com/PollBot/protos</RepositoryUrl>
