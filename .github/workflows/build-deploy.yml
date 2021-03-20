@@ -19,10 +19,5 @@ jobs:
         run: dotnet build src/PollBot.Protos.sln --configuration Release --no-restore 
       - name: Build package
         run: dotnet pack -c Release src/PollBot.Protos.sln
-      - name: Publish to NuGet
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/PollBot.Protos/PollBot.Protos.csproj
-          VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
-          NUGET_SOURCE: https://nuget.pkg.github.com/PollBot/index.json
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Publish to Github Packages
+        run: dotnet nuget push src/PollBot.Protos/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://nuget.pkg.github.com/PollBot/index.json
