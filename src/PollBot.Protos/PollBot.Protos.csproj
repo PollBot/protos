@@ -23,6 +23,9 @@
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>MRmlik12</Authors>
     <Company>PollBot</Company>
+    <RepositoryUrl>https://github.com/PollBot/protos</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/PollBot/protos</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/PollBot/protos/blob/master/LICENSE.md</PackageLicenseUrl>
   </PropertyGroup>
 
 </Project>
