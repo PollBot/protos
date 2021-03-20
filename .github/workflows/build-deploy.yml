@@ -16,9 +16,9 @@ jobs:
       - name: Install dependencies
         run: dotnet restore src/PollBot.Protos.sln
       - name: Build project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build src/PollBot.Protos.sln --configuration Release --no-restore 
       - name: Build package
-        run: dotnet pack -c Release
+        run: dotnet pack -c Releasesrc/PollBot.Protos.sln
       - name: Publish to NuGet
         uses: brandedoutcast/publish-nuget@v2
         with:
