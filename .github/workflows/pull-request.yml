@@ -1,0 +1,19 @@
+name: test build
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      - name: Install dependencies
+        run: dotnet restore src/PollBot.Protos.sln
+      - name: Build project
+        run: dotnet build src/PollBot.Protos.sln --configuration Release --no-restore 
+      - name: Build package
+        run: dotnet pack -c Release src/PollBot.Protos.sln
