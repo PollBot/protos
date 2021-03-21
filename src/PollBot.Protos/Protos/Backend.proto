@@ -5,7 +5,7 @@ option csharp_namespace = "PollBot.Protos";
 package backend;
 
 service Backend {
-  rpc ReceiveMessage (MessageRequest) returns (MessageResponse);
+  rpc CreateMessage (MessageRequest) returns (MessageResponse);
   rpc CreatePoll (PollRequest) returns (PollResponse);
 }
 
