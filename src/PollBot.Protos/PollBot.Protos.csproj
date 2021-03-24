@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\Backend.proto" GrpcServices="Server" />
-    <Protobuf Include="Protos\Backend.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\Backend.proto" GrpcServices="Server, Client" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,8 +20,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>PollBot.Protos</PackageId>
-    <Version>1.0.3</Version>
-    <PackageVersion>1.0.3</PackageVersion>
+    <Version>1.0.4</Version>
+    <PackageVersion>1.0.4</PackageVersion>
     <Authors>MRmlik12</Authors>
     <Company>PollBot</Company>
     <RepositoryUrl>https://github.com/PollBot/protos</RepositoryUrl>
