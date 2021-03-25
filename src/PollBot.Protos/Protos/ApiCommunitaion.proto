@@ -2,9 +2,9 @@ syntax = "proto3";
 
 option csharp_namespace = "PollBot.Protos";
 
-package backend;
+package api.communication;
 
-service Backend {
+service ApiCommunication {
   rpc CreateMessage (MessageRequest) returns (MessageResponse);
   rpc CreatePoll (PollRequest) returns (PollResponse);
 }
