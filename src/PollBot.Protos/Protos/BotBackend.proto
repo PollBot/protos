@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "PollBot.Protos";
+
+package bot.backend;
+
+service BotBackend {
+  rpc AddGuild (GuildRequest) returns (GuildResponse);
+  rpc AddReaction (ReactionRequest) returns (ReactionResponse);
+  rpc RemoveReaction (ReactionRequest) returns (ReactionResponse);
+}
+
+message GuildRequest {
+  string guildId = 1;
+  string owner = 2;
+}
+
+message GuildResponse {
+  bool isCreated = 1;
+}
+
+message ReactionRequest {
+  string userId = 1;
+  string reaction = 2;
+}
+
+message ReactionResponse {
+  bool isCompleted = 1;
+}
