@@ -11,8 +11,10 @@ service BotBackend {
 }
 
 message GuildRequest {
-  string guildId = 1;
-  string owner = 2;
+  uint64 guildId = 1;
+  uint64 owner = 2;
+  uint64 channelToPostPolls = 3;
+  repeated uint64 Users = 4;
 }
 
 message GuildResponse {
